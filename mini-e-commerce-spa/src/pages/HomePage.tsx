@@ -1,3 +1,4 @@
+import { ProductCard } from "../components/ProductCard";
 import { products } from "../data/products";
 
 
@@ -19,20 +20,7 @@ export function HomePage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
       {products.map(product => (
-        <div
-          key={product.id}
-          className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition"
-        >
-          <img src={product.image} alt={product.title} className="w-full h-60 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-bold">{product.title}</h2>
-            <p className="text-gray-600 mt-2">{product.description}</p>
-            <div className="mt-4 flex justify-between items-center">
-              <span className="text-lg font-semibold">${product.price}</span>
-              <span className="text-sm text-yellow-500">⭐ {product.rating.rate}</span>
-            </div>
-          </div>
-        </div>
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
     </div>
