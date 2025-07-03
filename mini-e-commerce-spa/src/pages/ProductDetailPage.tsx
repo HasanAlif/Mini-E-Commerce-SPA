@@ -1,10 +1,18 @@
 import { ArrowLeft, ShoppingCart, Star } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { products } from "../data/products";
+import { useCart } from "../context/useCart";
 
 export function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === Number(id));
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -69,7 +77,7 @@ export function ProductDetailPage() {
               </div>
               <div className="pt-6">
                 <button
-                  onClick={""}
+                  onClick={handleAddToCart}
                   className="w-full bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg flex items-center justify-center space-x-3 text-lg font-medium transition-colors"
                 >
                   <ShoppingCart size={24} />

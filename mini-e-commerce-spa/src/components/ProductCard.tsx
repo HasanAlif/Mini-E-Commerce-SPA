@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
 import type { Product } from "../types";
 import { ShoppingCart, Star } from "lucide-react";
+import { useCart } from "../context/useCart";
 
 
 interface ProductCardProps {
     product: Product;
 }
 
-const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
 
 export function ProductCard({ product }: ProductCardProps) {
+    const { addToCart } = useCart();
+
+    const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product);
+  };
+  
     return(
         <Link 
       to={`/product/${product.id}`}

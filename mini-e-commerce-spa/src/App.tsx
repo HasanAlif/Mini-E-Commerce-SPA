@@ -2,10 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HomePage } from "./pages/HomePage"
 import { Header } from './components/Header';
 import { ProductDetailPage } from './pages/ProductDetailPage';
+import { CartProvider } from './context/CartContext';
 
 function App() {
 
   return (
+    <CartProvider>
     <Router>
       <div>
         <Header />
@@ -17,6 +19,7 @@ function App() {
         </main>
       </div>
     </Router>
+    </CartProvider>
   );
 }
 
