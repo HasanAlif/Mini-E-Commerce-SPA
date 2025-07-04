@@ -3,6 +3,7 @@ import { HomePage } from "./pages/HomePage"
 import { Header } from './components/Header';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { CartProvider } from './context/CartContext';
+import { CartSidebar } from './components/CartSidebar';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetailPage />} />
           </Routes>
         </main>
+        <CartSidebar />
       </div>
     </Router>
     </CartProvider>

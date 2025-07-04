@@ -65,7 +65,7 @@ export function ProductDetailPage() {
                     {product?.rating?.rate} ({product?.rating?.count} reviews)
                   </span>
                 </div>
-                <div className="text-4xl font-bold text-cyan-600 mb-6">
+                <div className="text-4xl font-bold text-gray-700 mb-6">
                   {product ? `$${product.price.toFixed(2)}` : null}
                 </div>
               </div>

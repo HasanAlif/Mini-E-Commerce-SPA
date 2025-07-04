@@ -17,7 +17,7 @@ export function ProductCard({ product }: ProductCardProps) {
     e.stopPropagation();
     addToCart(product);
   };
-  
+
     return(
         <Link 
       to={`/product/${product.id}`}
@@ -46,7 +46,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
         
         <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-cyan-600">
+          <span className="text-2xl font-bold text-gray-700">
             ${product.price.toFixed(2)}
           </span>
           
