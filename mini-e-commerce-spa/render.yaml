@@ -1,10 +1,9 @@
 services:
   - type: web
     name: mini-e-commerce-spa
-    description: Mini E-Commerce SPA
     env: static
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    buildCommand: cd mini-e-commerce-spa && npm install && npm run build
+    staticPublishPath: mini-e-commerce-spa/dist
     routes:
       - type: rewrite
         source: /*
