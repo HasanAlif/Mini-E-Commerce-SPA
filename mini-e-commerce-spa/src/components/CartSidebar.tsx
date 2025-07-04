@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useCart } from "../context/useCart";
 import { Minus, Plus, Trash2, X } from "lucide-react";
+import { CheckoutModal } from "./CheckoutModal";
 
 export function CartSidebar() {
   const { state, removeFromCart, updateQuantity, toggleCart, getTotalPrice } =
     useCart();
+  const [showCheckout, setShowCheckout] = useState(false);
 
   const handleQuantityChange = (id: number, quantity: number) => {
     if (quantity < 0) {
@@ -106,13 +109,21 @@ export function CartSidebar() {
                 <span>Total:</span>
                 <span>${getTotalPrice().toFixed(2)}</span>
               </div>
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors">
+              <button
+                onClick={() => setShowCheckout(true)}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors"
+              >
                 Checkout
               </button>
             </div>
           )}
         </div>
       </div>
+
+      <CheckoutModal
+        isOpen={showCheckout}
+        onClose={() => setShowCheckout(false)}
+      />
     </>
   );
 }
